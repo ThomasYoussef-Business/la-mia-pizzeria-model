@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "_Layout";
+    ViewBag.BrandName = "Pizza!";
+    List<string[]> pizze = new List<string[]>() {
+        new string[3] {"https://upload.wikimedia.org/wikipedia/commons/c/c8/Pizza_Margherita_stu_spivack.jpg", "Pizza margherita", "Una pizza margherita"},
+        new string[3] {"https://blog.giallozafferano.it/zeroglutine/wp-content/uploads/2020/04/IMG_5544-720x411.jpg", "Pizza ai quattro formaggi", "Mmm, formaggio!"},
+        new string[3] {"https://www.tavolartegusto.it/wp/wp-content/uploads/2020/05/Pizza-napoletana-Ricetta-della-Pizza-Napoletana-Pizza-Margherita.jpg", "Pizza napoletana", "L'originale"},
+        new string[3] {"https://www.petitchef.it/imgupl/recipe/pizza-alla-nutella--455637p707856.jpg", "Pizza alla Nutella", "Per i golosoni!"}
+    };
+
+    void PizzaCard(string[] pizzaData) {
+        <div class="col-lg-4 col d-flex justify-content-center">
+            <div class="card" style="width: 18rem;">
+                <img src="@pizzaData[0]" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@pizzaData[1]</h5>
+                    <p class="card-text">@pizzaData[2]</p>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<div class="container mt-5">
+    <div class="row g-5 align-content-between">
+        @foreach (string[] pizza in pizze) {
+            PizzaCard(pizza);
+        }
+    </div>
+</div>
