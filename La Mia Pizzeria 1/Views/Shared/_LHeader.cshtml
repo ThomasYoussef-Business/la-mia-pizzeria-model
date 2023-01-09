@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<header>
+    <nav class="navbar bg-primary">
+        <div class="container-fluid">
+            <a asp-controller="Home" asp-action="Index" class="navbar-brand text-white">@((ViewBag.HeaderName != null ? $"La Mia Pizzeria - {ViewBag.HeaderName}" : "La Mia Pizzeria"))</a>
+        </div>
+    </nav>
+</header>
+<main>
+    <div>
+        @RenderBody()
+    </div>
+</main>
+
+@await RenderSectionAsync("Scripts", required: false)
